@@ -1,0 +1,368 @@
+/* --- Navbar Base Styles --- */
+.custom-navbar {
+  background-color: #111;
+  padding: 0.5rem 1rem;
+  z-index: 1050;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.company-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff !important;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- Search Bar --- */
+.navbar-search {
+  display: none;
+  flex: 1;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.navbar-search.show {
+  display: block;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+.search-submit {
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.search-close {
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+}
+
+/* --- Navbar Icons --- */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+.icon-wrapper {
+  position: relative;
+  color: #fff !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.icon-wrapper:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  color: #fff !important;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Tooltip Fix --- */
+.icon-tooltip {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.icon-wrapper:hover .icon-tooltip {
+  opacity: 1;
+}
+
+/* Prevent tooltip overflow */
+.icon-tooltip.account-tooltip {
+  right: 0;
+  left: auto;
+  transform: translateX(0);
+}
+
+/* Icon styles */
+.nav-icon-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.nav-icon-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+}
+
+.nav-icon-wrapper:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-icon-label {
+  font-size: 0.9rem;
+  color: #fff;
+  display: inline-block;
+}
+
+/* Responsive Styles */
+@media (min-width: 992px) {
+  .navbar-icons {
+    gap: 2rem;
+  }
+
+  .icon-wrapper {
+    padding: 0.5rem 1.2rem;
+  }
+
+  .nav-icon {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-icons {
+    gap: 0.8rem;
+  }
+
+  .icon-wrapper {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .nav-icon {
+    font-size: 1.2rem;
+  }
+
+  .icon-label {
+    font-size: 0.8rem;
+  }
+}
+
+/* --- Mobile Styles --- */
+@media (max-width: 991px) {
+  .navbar-icons {
+    display: flex !important;
+    margin-left: auto;
+    gap: 1.5rem;
+  }
+
+  .icon-wrapper {
+    padding: 0.5rem 0.8rem;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+  }
+
+  .icon-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-icon {
+    font-size: 1.3rem;
+    margin-right: 0.3rem;
+  }
+
+  .icon-label {
+    font-size: 0.9rem;
+    color: #fff;
+    display: inline-block;
+  }
+
+  .navbar-search.mobile-search {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #111;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-search.mobile-search.show {
+    display: block;
+    animation: navbarSlideDown 0.3s ease forwards;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    background-color: #111;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-menu .offcanvas-body {
+    padding: 0;
+  }
+
+  .mobile-menu .flex-column {
+    flex-direction: row !important;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .mobile-nav-item {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    gap: 0.5rem;
+    min-width: auto;
+    border: none;
+  }
+
+  .mobile-menu .flex-column {
+    flex-direction: row !important;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .mobile-nav-item {
+    padding: 0.5rem;
+    color: #fff !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    transition: background-color 0.2s ease;
+    text-align: center;
+    flex: 1;
+    border: none;
+  }
+
+  .mobile-nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-nav-icon {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .mobile-nav-item span {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+  }
+
+  .mobile-cart-badge {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 0 6px;
+    font-size: 0.75rem;
+    margin-left: auto;
+  }
+}
+.navbar-container {
+  padding: 0 0.5rem;
+}
+
+.nav-icon {
+  font-size: 1.1rem;
+}
+
+.mobile-menu {
+  max-width: 100%;
+}
+
+/* Extra Small Mobile */
+@media (max-width: 375px) {
+  .company-name {
+    font-size: 1.1rem;
+  }
+
+  .search-input {
+    font-size: 0.85rem;
+  }
+}
+
+/* Animations */
+@keyframes navbarSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
